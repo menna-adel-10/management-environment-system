@@ -1,5 +1,5 @@
 import Image from "next/image"
-import platform from "../public/assets/platform.svg"
+import platform from "../../public/assets/platform.svg"
 
 const AuthLogo = () => {
   return (

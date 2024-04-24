@@ -1,7 +1,15 @@
-import LoginForm from "../../../components/AuthFom"
-import AuthLogo from "@/components/AuthLogo"
+import { getServerSession } from "next-auth"
+import LoginForm from "../../components/AuthFom"
+import AuthLogo from "@/app/components/AuthLogo"
+import { redirect } from "next/navigation"
+import { authOptions } from "@/app/utils/auth"
 
-const Register = () => {
+export default async function Register() {
+  const session = await getServerSession(authOptions)
+
+  if (session) {
+    return redirect("/dashboard")
+  }
   return (
     <div className="min-h-screen flex relative bg-[#fff]">
       <AuthLogo />
@@ -16,5 +24,3 @@ const Register = () => {
     </div>
   )
 }
-
-export default Register

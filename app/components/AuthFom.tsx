@@ -1,10 +1,13 @@
+"use client"
+
 import Image from "next/image"
-import factoryIcon from "../public/assets/factoryIcon.svg"
+import factoryIcon from "../../public/assets/factoryIcon.svg"
 import Link from "next/link"
-import { Input } from "./ui/input"
-import { Button } from "./ui/button"
-import GoogleIcon from "../public/assets/google.svg"
+import { Input } from "../../components/ui/input"
+import { Button } from "../../components/ui/button"
+import GoogleIcon from "../../public/assets/google.svg"
 import { FaGithub } from "react-icons/fa"
+import { signIn } from "next-auth/react"
 
 const AuthForm = ({ buttonText, linkText, navigate, stateText }) => {
   return (
@@ -16,6 +19,7 @@ const AuthForm = ({ buttonText, linkText, navigate, stateText }) => {
         </div>
         <div className="flex w-full justify-center items-center gap-x-3 mt-5">
           <Button
+            onClick={() => signIn("github")}
             variant="outline"
             size="icon"
             className="hover:bg-slate-100 rounded-full"
