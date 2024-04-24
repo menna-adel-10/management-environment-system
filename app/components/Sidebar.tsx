@@ -1,6 +1,4 @@
-"use client"
-
-import React from "react"
+"use client";
 import Link from "next/link"
 import logo from "../../public/assets/logo.svg"
 import Image from "next/image"
@@ -16,8 +14,8 @@ import {
 import { usePathname } from "next/navigation"
 
 export default function Sidebar() {
-  const pathname = usePathname();
-  
+  const pathname = usePathname()
+
   const links = [
     { href: "/dashboard", label: "Dashboard", icon: <LayoutGrid /> },
     { href: "/resources", label: "Resources", icon: <Factory /> },
@@ -63,20 +61,20 @@ export default function Sidebar() {
 
         <nav>
           {links.map((link, index) => {
-              const isActive = pathname.startsWith(link.href)
+            const isActive = pathname === link.href
             return (
-              <Link key={link.href} href={link.href} className={isActive ? "bg-blue-700" : "bg-white"}>
+              <Link key={link.href} href={link.href} passHref>
                 <button
-                  className={`flex gap-6 w-full text-left py-2.5 px-4 rounded-r-full hover:bg-blue-700 text-[#D0D7DA] hover:text-white transition duration-300 ${
-                    index === links.length - 3 ? "mb-60" : "" 
-                  }`}
+                  className={`flex gap-6 w-full mt-2 text-left py-2.5 px-4 rounded-r-full hover:bg-blue-700 text-[#D0D7DA] hover:text-white transition duration-300 ${
+                    isActive ? "bg-blue-700 text-white" : ""
+                  } ${index === links.length - 3 ? "mb-60" : ""}`}
                 >
                   <span className="w-4 h-4">{link.icon}</span>
                   <span>{link.label}</span>
                 </button>
               </Link>
             )
-})}
+          })}
         </nav>
       </div>
     </div>
