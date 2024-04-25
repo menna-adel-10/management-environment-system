@@ -27,6 +27,7 @@ const AuthForm = ({ buttonText, linkText, navigate, stateText }) => {
             <FaGithub className="w-5 h-5" />
           </Button>
           <Button
+            onClick={() => signIn('email')}
             variant="outline"
             size="icon"
             className="hover:bg-slate-100 rounded-full"

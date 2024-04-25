@@ -30,6 +30,7 @@ const config = {
         },
         primary: '#2D62ED',
         bgPrimary: '#F4F7FE',
+        babyBlue: '#2D62ED4D',
 
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

@@ -2,6 +2,16 @@
   @tailwind components;
   @tailwind utilities;
 
+  * {
+    outline-color: transparent;
+    outline: none;
+    border: none;
+  }
+
+  body {
+    background-color: #F4F7FE;
+  }
+
     @layer base {
       :root {
         --background: 0 0% 100%;
@@ -57,3 +67,28 @@
       @apply bg-background text-foreground;
     }
   }
+
+    /* ===== Scrollbar CSS ===== */
+    /* Firefox */
+    * {
+      scrollbar-width: auto;
+      scrollbar-color: #003F5C #ffffff;
+  
+    }
+  
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar {
+      width: 10px;
+      height: 20%;
+    }
+  
+    *::-webkit-scrollbar-track {
+      background: #69686c;
+      border-radius: 10px;
+    }
+  
+    *::-webkit-scrollbar-thumb {
+      background-color: #003F5C;
+      border-radius: 10px;
+      border: 5px solid #003F5C;
+    }
